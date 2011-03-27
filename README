@@ -1,0 +1,12 @@
+If you are using Backbone.js with Rails 3 and are noticing that your authenticity token is not being passed in with Backbone's XHR calls, include this code and run it like so:
+
+BackboneRailsAuthTokenAdapter.fixSync(Backbone);
+
+The default method of operation assumes Rails' csrf_meta_tag call has already happened and that jQuery and Backbone are present. Thus it's best to run this code after Backbone, jQuery, and the metatag have been loaded but *before* your Backbone app makes its first request.
+
+This code was adapted from:
+
+http://www.ngauthier.com/2011/02/backbone-and-rails-forgery-protection.html
+
+Thanks to Nick Gauthier ( @ngauthier )
+
